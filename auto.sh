@@ -1,7 +1,7 @@
-echo "git add *"
+echo "Fazendo git add"
 git add *
-echo "commit"
-git commit -m "commit automatico via script."
-sleep(2)
+echo "Commitando"
+git commit -m "Atualizações por Script"
+echo "Fazendo push"
 git push
 
