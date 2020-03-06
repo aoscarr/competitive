@@ -7,10 +7,9 @@ using namespace std;
 int main(){
 	desync;
 	string a,b;
-	do{
-		cin >> a;
+	while(getline(cin, a)){
 		b = "";
-		for(int i =0;i<a.size(); a++){
+		for(int i =0;i<a.size(); i++){
 			if(a[i] == '@')
 				b += 'a';
 			else if(a[i] == '&')
@@ -24,7 +23,7 @@ int main(){
 			else
 				b += a[i];
 		}
-		cout << b;
+		cout << b << endl;
 		
-	}while(a != NULL);
+	}
 }
