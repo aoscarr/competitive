@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n=1, m=0, s=0, contador=0, lo, co;
+
+    while(true){
+        cin >> n >> m >> s;
+        if(n==0 && m==0 && s==0)
+            break;
+        string arena[n][m], inst, dir;
+        for(int i = 0; i < n; i ++){
+            for(int j = 0; j < m; j ++){
+                cin >> arena[i][j];
+                if(arena[i][j]!="." && arena[i][j]!="#" && arena[i][j]!=""){
+                    lo = i;
+                    co = j;
+                    dir = arena[i][j];
+                }
+            }
+        }
+        cin >> inst;
+        for(int i = 0; i < s; i ++){
+            if(inst[i]=="E"){
+                if(dir=="N")
+                    dir = "O";
+                else if(dir=="S")
+                    dir = "L";
+                else if(dir=="L")
+                    dir = "N";
+                else if(dir=="O")
+                    dir = "S";
+            }else if(inst[i]=="D"){
+                if(dir=="N")
+                    dir = "L";
+                else if(dir=="S")
+                    dir = "O";
+                else if(dir=="L")
+                    dir = "S";
+                else if(dir=="O")
+                    dir = "N";
+            }else{
+                if(dir=="N" && arena[lo-1][co]!="#"){
+                    lo--;
+                    if(arena[lo][co]=="")
+                    contador+=1;
+                }else if(dir=="S" && arena[lo+1][co]!="#"){
+                    lo++;
+                    if(arena[lo][co]=="")
+                    contador+=1;
+                }else if(dir=="L" && arena[lo][co+1]!="#"){
+                    co++;
+                    if(arena[lo][co]=="")
+                    contador+=1;
+                }else if(dir=="O" && arena[lo][co-1]!="#"){
+                    co--;
+                    if(arena[lo][co]=="*")
+                    contador+=1;
+                }
+            }
+        }
+    cout << contador;
+    }
+}
