@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+#define desync ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl '\n'
+
+int main(){
+	desync;
+	long n, total_cedulas = 0;
+	int v[6] = {100, 50, 25, 10, 5, 1};
+	cin >> n;
+
+		for(int i =0 ; n != 0; i++){
+			total_cedulas += n / v[i];
+			n = n% v[i];
+		}
+	
+
+	cout << total_cedulas << endl;
+
+
+}
