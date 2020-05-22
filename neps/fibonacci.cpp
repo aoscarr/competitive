@@ -12,7 +12,11 @@ int main(){
 	
 	int n;
 	cin >> n;
-	cout << fib(n) << endl;
+	cout << "0 ";
+	for(int i=0;i <n-1; i++){
+		cout << fib(i) << " ";
+	}
+	cout << endl;
 }
 
 int fib(int n){
