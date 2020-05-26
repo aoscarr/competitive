@@ -23,7 +23,28 @@ int i,j,n, m, k;
 int s[MAXN];
 
 int main(){
-    desync;
-
+    // desync;
+    cin >> n;
+    stack<char> pilha;
+    string pal[n], msg = "N\n";
+    cin.ignore();
+    for(i = 0; i< n; i++){
+    	getline(cin, pal[i]);
+    }
+    for(i = 0; i < n; i++){
+    	for(j=0; j < pal[i].size(); j++){
+    		if(pal[i][j] == '}' && pilha.empty()){
+    			cout << msg;
+    			return 0;
+    		}else if(pal[i][j] == '{'){
+    			pilha.push(pal[i][j]);
+    		}
+    		else if(pal[i][j] == '}')
+    			pilha.pop();
+    	}
+    }
+    if(!pilha.empty())
+    	cout << msg;
+    else cout << "S\n";
     return 0;
 }
