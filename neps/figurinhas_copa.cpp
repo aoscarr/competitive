@@ -24,6 +24,21 @@ int s[MAXN];
 
 int main(){
     desync;
-    
+    cin >> n >> m >> k;
+    set<int>a;
+    for(i = 0; i < m ; i++){
+    	cin >> aux;
+    	a.insert(aux);
+    }
+    for(i = 0; i < k; i++){
+    	cin >> aux;
+    	if(a.count(aux))
+    		a.erase(aux);
+    	if(a.empty())
+    		break;
+    }
+
+    cout << a.size() << endl;
     return 0;
 }
+

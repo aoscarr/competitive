@@ -24,6 +24,14 @@ int s[MAXN];
 
 int main(){
     desync;
-    
+
+    cin >> n >> m;
+    set<int> conjunto;
+
+    for(i = 0; i < m ; i++){
+    	cin >> aux;
+    	conjunto.insert(aux);
+    }
+    cout << (n - conjunto.size()) << endl;
     return 0;
 }

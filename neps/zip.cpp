@@ -24,6 +24,28 @@ int s[MAXN];
 
 int main(){
     desync;
-    
+    int l1,l2,c1,c2, pts_l, pts_c;
+    cin >> l1 >> l2 >> c1 >> c2;
+
+   	if(l1 == l2)
+   		pts_l = (l1+l2)*2;
+   	else if(l1 == l2+1 || l1 == l2-1)
+   		pts_l = (l1+l2)*3;
+   	else 
+   		pts_l = l1 + l2;
+
+   	if(c1 == c2)
+   		pts_c = (c1+c2)*2;
+   	else if(c1 == c2+1 || c1 == c2-1)
+   		pts_c = (c1+c2)*3;
+   	else 
+   		pts_c = c1 + c2;
+
+   	if(pts_c == pts_l)
+   		cout << "empate\n";
+   	else if(pts_c > pts_l)
+   		cout << "Carolina\n";
+   	else
+   		cout << "Lia\n";
     return 0;
 }

@@ -19,11 +19,19 @@ typedef vector <pii> vii;
 const ll modn = 1000000007;
 inline ll mod(ll x) { return x % modn; }
 const int MAXN = 212345;
-int i,j,n, m, k, aux;
+int i,j,n, m, k;
 int s[MAXN];
 
 int main(){
     desync;
-    
+    int ha,ma,hr,mr;
+    cin >> ha >> ma >> hr >> mr;
+
+    i = ha * 60 + ma + 45;
+    j = hr * 60 + mr;
+    if(i <= j) 
+    	cout << "Sucesso\n";
+    else
+    	cout << "Atrasado " << (i-j) << endl;
     return 0;
 }

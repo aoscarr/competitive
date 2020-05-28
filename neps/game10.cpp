@@ -20,22 +20,11 @@ typedef vector <vi> matriz;
 
 int main(){
 	desync;
-	int aux,n;
-	vector<int> v;
+	int n, aviao, nave;
 
-	cin >> n;
-	for(int i =0 ; i < n ; i++){
-		cin >> aux;
-		v.pb(aux);
-	}
-	cin >> n;
-	sort(v.begin(), v.end());
-	for(int i =0;i <n; i++){
-		cin >> aux;
-		if(binary_search(v.begin(), v.end(), aux))
-			cout << "Sim\n";
-		else
-			cout << "Nao\n";
-	}
-	return 0;
+	cin >> n >> aviao >> nave;
+	if(nave <= aviao)
+		cout << (aviao - nave) << endl;
+	else 
+		cout << (n + aviao - nave) << endl;
 }

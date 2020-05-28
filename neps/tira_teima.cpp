@@ -24,6 +24,8 @@ int s[MAXN];
 
 int main(){
     desync;
-    
+    cin >> i >> j;
+    if(i < 0 || i > 432 || j < 0 || j > 468) cout << "fora\n";
+    else cout << "dentro\n";
     return 0;
 }

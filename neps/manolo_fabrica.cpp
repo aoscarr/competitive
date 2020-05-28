@@ -24,6 +24,31 @@ int s[MAXN];
 
 int main(){
     desync;
-    
+    cin >> n;
+    int a=0,b=0,c=0,v[5] = {0};
+    for(i=0;i < n;i++){
+    	cin >> aux;
+    	v[aux-1]++;
+    	// a = 1,3,5 ; b = 1,4 ; c = 2, 4
+    	if(v[0] >= 1 && v[2] >= 1 && v[4] >= 1){
+    		a++;
+    		v[0]--;
+    		v[2]--;
+    		v[4]--;
+    	}
+    	if(v[0] >= 1 && v[3] >= 1){
+    		b++;
+    		v[0]--;
+    		v[3]--;
+    	}
+    	if(v[1] >= 1 && v[3] >= 1){
+    		c++;
+    		v[1]--;
+    		v[3]--;
+    	}
+    }
+    cout << "A: " << a << endl;
+    cout << "B: " << b << endl;
+    cout << "C: " << c << endl;
     return 0;
 }
