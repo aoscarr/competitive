@@ -24,6 +24,14 @@ int v[MAXN];
 
 int main(){
     desync;
-    
+    cin >> i >> j >> m >> n;
+    k = i * j;
+    aux = m * n;
+    if(k > aux)
+    	cout << "Primeiro\n";
+    else if(k < aux)
+    	cout << "Segundo\n";
+    else
+    	cout <<"Empate\n";
     return 0;
 }
