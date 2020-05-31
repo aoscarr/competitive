@@ -12,6 +12,7 @@ int main(){
 	cin >> t;
 
 	for(int i=0; i < t; i++){
+		mapa.clear();
 		cin >> m >> n;
 		aux = "";
 		for(int j =0; j < m; j++){
@@ -20,31 +21,32 @@ int main(){
 			getline(cin, trad);
 			mapa[pal] = trad;
 		}
+
 		for(int j =0; j <n; j++){
 			getline(cin, trad);
 			aux = "";
-			// cout << trad << endl;
+
 			for(int h = 0; h < trad.size(); h++){
-				if(trad[h] != ' ' && h != trad.size() -1 ){
+				
+				if(trad[h] != ' ' && h < trad.size() - 1)
 					aux += trad[h];
-					// cout << aux << " ";
-				}
 				else{
-					if(h == trad.size() -1){
+					if(h == trad.size()-1)
 						aux += trad[h];
-					
-					if(mapa.count(aux)){
-						cout << mapa[aux] << " ";
-					}
-					else 
-						cout << aux << " ";
-					}
+					if(mapa.count(aux))
+						cout << mapa[aux];	
+					else
+						cout << aux;
+					cout << " ";					
 					aux = "";
 				}
+					
 			}
 			cout << endl;
 		}
+		if( i < t-1)
+			cout << endl;
 
-		cout << endl;
+		
 	}
 }
