@@ -1,22 +1,31 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 #define desync ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define endl '\n'
+#define pb push_back
 
 int main(){
    desync;
-   int n, dario = 0, xerxes = 0, a,b;
-   
+   int aux,n,k;
    cin >> n;
-   
+   vector<int>v;
    for(int i =0; i < n; i++){
-      cin >> a >> b;
-      if( (a==0 && (b==1 || b==2)) || (a==1 && (b==2 || b==3))  || 
-          (a == 3 && (b==0 || b==4)) || (a==2 && (b==4 || b==3))||
-          (a == 4 && (b==0 || b==1)) ) dario++;
-      else xerxes++;
+      cin >> aux;
+      v.pb(aux);
    }
+   cin >> k;
    
-   if(dario >= xerxes) cout << "dario\n";
-   else cout << "xerxes\n";
+   for(int i=0; i< n;i++){
+      for(int j = i+1; j < n; j++){
+         if(v[i] + v[n-1] < k) break;
+         
+
+         if( (v[i] + v[j] == k) ){
+            cout << min(v[i], v[j]) << " " << max(v[i],v[j]) << endl;
+            return 0;   
+         }
+         if((v[i] + v[j] == k)) n/=2;
+      }
+      
+   }
 }

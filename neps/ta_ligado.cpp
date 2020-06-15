@@ -4,8 +4,6 @@ using namespace std;
 #define endl '\n'
 
 int main(){
-   desync;
-   int a,b,c,d;
-   
-   cin >> a >> b >> c >> d;
+	desync;
+	
 }

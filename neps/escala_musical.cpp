@@ -5,7 +5,5 @@ using namespace std;
 
 int main(){
    desync;
-   int a,b,c,d;
    
-   cin >> a >> b >> c >> d;
 }
