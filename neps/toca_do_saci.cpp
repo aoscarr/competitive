@@ -2,55 +2,59 @@
 using namespace std;
 #define desync ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define endl '\n'
+int cont= 0;
+vector<int> adj[1002];
 
 int main(){
 	desync;
-	int n, m, cont = 1, x,y,x_ant, y_ant, vez;
-
-	cin >> n >> m;
-	int mat[n][m];
-
-	for(int i=0; i < n; i++){
-		for(int j=0;j < m; j++){
-			cin >> mat[i][j];
-			if(mat[i][j] == 3){
-				x = i;
-				y = j;
-			}
-		}
+	int i,j,n,m,x,y; cin >> n >> m;
+	pair<int,int> mat[n][m];
+	for(i =0; i < n;i++){
+	   for(j =0; j < m; j++){
+	      cin >> mat[i][j].first;
+	      mat[i][j].second = -1;
+	      if(mat[i][j].first == 3){
+	         x = i;
+	         y = j;
+	      }
+	   }
 	}
-	vez = 1;
-	x_ant = -1;
-	y_ant = -1;	
-	while(vez <=  10){
-		cout << mat[x][y] << " - x" << x << " y" << y << " xa" << x_ant << " ya" << y_ant << endl;
-		
-		if(x > 0 && mat[x-1][y] ==1 && (x+1 != x_ant)){
-			x_ant = x;
-			x--;
-		}
-		else if(x < n-1 && mat[x+1][y] == 1 && (x-1 != x_ant)){
-			x_ant = x;
-			x++;
-		}
-		else if( (y > 0) && (mat[x][y-1] == 1) && (y != (y_ant+1))){
-			y_ant = y;
-			y--;
-			cout << "caiu\n";
-		}
-		else if(y < m-1 && mat[x][y+1] == 1 && (y != y_ant+1)){
-			y_ant = y;
-			y++;
-		}
-		else if( (x < n-1 && mat[x+1][y]==2) || (x >0&& mat[x-1][y]==2) || (y > 0 && mat[x][y-1] == 2) || (y < m-1 && mat[x][y+1] == 2) ){
-			cont++;
-			break;
-		}
-		else if(mat[x][y] == 2) 
-			break;		
-		vez++;
-		cont++;
+	int vez, c = 0;
+	pair<int,int> par;
+	vez = mat[x][y].first;
+	i = x; j = y;
+	while (vez != 2){
+	   par = mat[i][j];
+	   vez = mat[i][j].first;
+	   mat[i][j].second = 1;
+	   if(i > 0 && mat[i-1][j].first != 0 && mat[i-1][j].second == -1)
+	      i--;
+	   else if(i < n-1 && mat[i+1][j].first != 0 && mat[i+1][j].second == -1 )
+	      i++;
+	   else if(j > 0 && mat[i][j-1].first != 0 && mat[i][j-1].second == -1)
+	      j--;
+	   else if(i < m-1 && mat[i][j+1].first != 0 && mat[i][j+1].second == -1)
+	      j++;
+	   
+
+	   cont++;
 	}
-	cout << mat[x][y] << " - \n\n";
 	cout << cont << endl;
+//	queue<pair<int,int>>fila;
+//	pair<int,int> par;
+//	fila.push(mat[x][y]);
+//	i =x;j=y;
+//	while(!fila.empty()){
+//	   par = fila.front();
+//	   fila.pop();
+//	   if(i > 0 && mat[i-1][j].first == 1 && mat[i-1][j].second != -1){
+//	   
+//	   }
+//	}
+//	for(i =x; i < n;i++){
+//	   for(j =y; j < m; j++){
+//	     if(i > 0 && )
+//	      
+//	   }
+//	}
 }
