@@ -6,26 +6,29 @@ using namespace std;
 
 int main(){
    desync;
-   int aux,n,k;
+   int n,i,j,k,valor;
+   
    cin >> n;
-   vector<int>v;
-   for(int i =0; i < n; i++){
-      cin >> aux;
-      v.pb(aux);
-   }
+   
+   int vet[n];
+   
+   for(i = 0; i < n; i++)
+      cin >> vet[i];
    cin >> k;
    
-   for(int i=0; i< n;i++){
-      for(int j = i+1; j < n; j++){
-         if(v[i] + v[n-1] < k) break;
-         
-
-         if( (v[i] + v[j] == k) ){
-            cout << min(v[i], v[j]) << " " << max(v[i],v[j]) << endl;
-            return 0;   
-         }
-         if((v[i] + v[j] == k)) n/=2;
+   valor = k-1;
+   i = 0;
+   j = n - 1;
+   while(valor != k){
+      valor = vet[i] + vet[j];
+      if(valor < k)
+         i++;
+      else if(valor > k)
+         j--;
+      else{
+         cout << vet[i] << " " << vet[j] << endl;
+         break;
       }
-      
    }
+   
 }
